@@ -3,8 +3,14 @@ package main
 import (
 	"errors"
 	"fmt"
+	"strings"
 	"unicode/utf8"
 )
+
+type gasEngine struct {
+	mpg     uint8
+	gallons uint8
+}
 
 func main() {
 	fmt.Println("Hello World!")
@@ -88,10 +94,39 @@ func main() {
 		fmt.Println("Invalid name")
 	}
 
-	// iteration
-	for name := range execMap {
-		fmt.Printf("Name: %v", name)
+	// iteration/loops
+	for name, age := range execMap {
+		fmt.Printf("Name: %v, Age: %v", name, age)
 	}
+
+	for i, v := range arrayofInts {
+		fmt.Printf("Index: %v, Value: %v \n", i, v)
+	}
+
+	for i := 0; i < 10; i++ {
+		fmt.Println(i)
+	}
+
+	for i := range 10 {
+		fmt.Println(i)
+	}
+
+	//strings, runes and Bytes
+	var myString = []rune("résumé")
+	var indexed = myString[1]
+	fmt.Printf("%v, %T\n", indexed, indexed)
+	for i, v := range myString {
+		fmt.Println(i, v)
+	}
+	fmt.Printf("\n The lenght of 'myString' is %v", len(myString))
+
+	var strSlice = []string{"h", "e", "l", "l", "o"}
+	var strBuilder strings.Builder
+	for i := range strSlice {
+		strBuilder.WriteString(strSlice[i])
+	}
+	var catStr = strBuilder.String()
+	fmt.Printf("\n%v", catStr)
 }
 
 // -- functions in Go
