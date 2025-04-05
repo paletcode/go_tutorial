@@ -13,6 +13,9 @@ type gasEngine struct {
 }
 
 func main() {
+	var myEngine gasEngine = gasEngine{mpg: 25, gallons: 35}
+	fmt.Println(myEngine.mpg, myEngine.gallons)
+
 	fmt.Println("Hello World!")
 	// variables and how to declare/use them.
 	var intNum int = 12
